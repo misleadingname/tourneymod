@@ -80,6 +80,8 @@ func _ready():
 	tourney_timer.connect("timeout", self, "_finish_tourney")
 	update_timer.connect("timeout", self, "_update_timer_timeout")
 	
+	yield(get_tree().create_timer(3), "timeout")
+	
 	_send_net("tourney_exists_question", {}, str(Network.KNOWN_GAME_MASTER))
 
 func _get_fish_amt():

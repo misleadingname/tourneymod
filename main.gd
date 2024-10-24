@@ -34,7 +34,7 @@ func readPackets():
 		
 		var data = bytes2var(PACKET.data.decompress_dynamic( - 1, File.COMPRESSION_GZIP))
 		
-#		PlayerData._send_notification("[RECEIVE NET] from: " + str(data.steamid) + " ... " + str(data))
+		#PlayerData._send_notification("[RECEIVE NET] from: " + str(data.steamid) + " ... " + str(data))
 
 		emit_signal("tourney_net", data.steamid, data)
 
