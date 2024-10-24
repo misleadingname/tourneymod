@@ -1,0 +1,135 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Assets/Themes/coolvetica rg.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://Assets/Materials/gray.tres" type="Material" id=2]
+[ext_resource path="res://Assets/Materials/dark.tres" type="Material" id=3]
+[ext_resource path="res://Assets/Textures/wood.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Materials/wood.tres" type="Material" id=5]
+[ext_resource path="res://mods/misname.fishtourney/Scenes/Interactables/tourney_script.gd" type="Script" id=6]
+[ext_resource path="res://mods/misname.fishtourney/Assets/Models/tourney.glb" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1.5525, 0.784217, 0.90228 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.258824, 0.356863, 0.207843, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.384314, 0.156863, 0.0627451, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 0.35, 0.35, 0.35 )
+uv1_triplanar = true
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.643137, 0.615686, 0.611765, 1 )
+
+[sub_resource type="CubeMesh" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="TextMesh" id=2]
+material = ExtResource( 3 )
+text = "TOURNEY"
+font = SubResource( 1 )
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 2.08452, 0.414255, 0.185474 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 1.20695, 0.414255, 0.185474 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 1.06207, 0.414255, 0.185474 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 1.26896, 0.601162, 1.88595 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 0.351504, 0.414255, 0.185474 )
+
+[node name="tourney_place" type="Area"]
+script = ExtResource( 6 )
+text = "JOIN TOURNEY"
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.986898, 0, 0.161345, 0, 1, 0, -0.161345, 0, 0.986898, 0.434835, 0.829548, 1.84264 )
+shape = SubResource( 4 )
+
+[node name="tourney" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.493979, 0, 0.0773638, 0, 0.5, 0, -0.0773638, 0, 0.493979, 0, 0, 0 )
+
+[node name="tourney" parent="tourney" index="0"]
+material/0 = SubResource( 5 )
+material/1 = SubResource( 6 )
+material/2 = SubResource( 7 )
+
+[node name="clipboard" parent="tourney" index="2"]
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 2 )
+
+[node name="nail" parent="tourney" index="4"]
+material/0 = SubResource( 8 )
+
+[node name="shhh don\'t question it" type="MeshInstance" parent="tourney"]
+transform = Transform( 0.25, 0, -3.72529e-09, 0, 2.60913, 0, 3.72529e-09, 0, 0.25, 0.242807, 3.77375, -2.06767 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 6 )
+
+[node name="shhh don\'t question it2" type="MeshInstance" parent="tourney"]
+transform = Transform( -0.000128507, 3.54785, -2.90088e-05, -0.25, -0.00182344, 0.000126077, 0.000138996, 0.000455081, 0.226737, 0.0481268, 4.09529, -2.00999 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 6 )
+
+[node name="placeholdervis" type="Spatial" parent="."]
+visible = false
+
+[node name="MeshInstance" type="MeshInstance" parent="placeholdervis"]
+transform = Transform( 3.22294, 0, 0, 0, 17.4413, 0, 0, 0, 1, 0, 0.00445747, 1 )
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+
+[node name="MeshInstance2" type="MeshInstance" parent="placeholdervis"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+
+[node name="IntermissionTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TourneyTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="UpdateTimer" type="Timer" parent="."]
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.985815, 0, 0.167836, 0, 1, 0, -0.167836, 0, 0.985815, 0.161345, 0.316662, 0.858453 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 0.985815, 0, 0.167836, 0, 1, 0, -0.167836, 0, 0.985815, 0.691824, 0.316662, -1.12499 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -0.167836, 0, 0.985815, 0, 1, 0, -0.985815, 0, -0.167836, 1.87669, 0.316662, -0.389891 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -0.167836, 0, 0.985815, 0, 1, 0, -0.985815, 0, -0.167836, -1.8386, 0.322174, 0.246153 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -0.167836, 0, 0.985815, 0, 1, 0, -0.985815, 0, -0.167836, 0.0115204, 3.20449, -0.0723446 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( -0.985815, 0, -0.167836, 0, 1, 0, 0.167836, 0, -0.985815, -1.84242, 0.322174, -0.780812 )
+shape = SubResource( 13 )
+
+[editable path="tourney"]
