@@ -189,7 +189,7 @@ func _start_tourney():
 
 	SceneTransition._fake_scene_change()
 	yield (SceneTransition, "_finished")
-	_get_player_actor().global_translation = spawnloc.global_translation
+	_get_player_actor().global_translation = spawnloc.global_translation + Vector3(0, 1, 0)
 	yield (get_tree().create_timer(0.3), "timeout")
 	
 	_get_player_actor().gravity_disable = false
