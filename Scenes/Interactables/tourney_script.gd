@@ -132,9 +132,9 @@ func _update_intermission_timer():
 	
 	if queued_people.size() < 2:
 		intermission_timer.stop()
-		_send_net("notif", "Not enough players to start the tourney!", 1)
+		_send_net("notif", {"body": "Not enough players to start the tourney!", "red": 1})
 	else:
-		_send_net("notif", "Starting the tourney in 10 seconds!", 0)
+		_send_net("notif", {"body": "Starting the tourney in 10 seconds!", "red": 0})
 		intermission_timer.start(10)
 
 func _join_tourney(steamid: int):
