@@ -200,8 +200,6 @@ func _start_tourney():
 
 
 func _finish_tourney(cancelled: bool = false):
-	if not tourney_active: return
-	
 	tourney_active = false
 	get_tree().root.remove_child(tourney_hud_instance)
 	update_timer.stop()
