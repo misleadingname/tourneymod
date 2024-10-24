@@ -179,6 +179,7 @@ func _start_tourney():
 	
 	var spawnlocs: Array = get_tree().get_nodes_in_group("trash_point")
 	var rng: RandomNumberGenerator = RandomNumberGenerator.new()
+	rng.seed = randi()
 	var spawnloc: Position3D = spawnlocs[rng.randi_range(0, spawnlocs.size() - 1)]
 
 	if _get_player_actor().state == _get_player_actor().STATES.FISHING or _get_player_actor().state == _get_player_actor().STATES.FISHING_CAST or _get_player_actor().state == _get_player_actor().STATES.FISHING_CAST:
