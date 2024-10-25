@@ -239,7 +239,7 @@ func _finish_tourney(cancelled: bool = false):
 			_send_net("results", {"scores": sorted_scores}, str(player))
 
 func _compare_values(a, b):
-	return people_scores[b] - people_scores[a]
+	return people_scores[b] + people_scores[a]
 
 func _intermission_timer_timeout():
 	if not Network.GAME_MASTER: return
